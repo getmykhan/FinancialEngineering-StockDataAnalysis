@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+
+
+<html>
+<head>
+	<title> Flask Powered </title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
+<body>
+<div class="container">
+<h1> <a href= 'https://www.google.com'> Stock Data Analysis </a></h1>
+<br>
+
+<form method = 'post', action="/">
+<div class = "form-group">
+    TCKER: <input type="text" name="Tcker"></input>
+    <input class="btn btn-primary" type="submit" value="Plot">
+    <br>
+    From Month: <select name= drop_down_month_from>
+    {% for colour in drop_down_month_from %}
+    <option value= "{{colour}}" SELECTED>{{ colour }}</option>"
+    {% endfor %}
+</select>
+<br>
+    From Year: <select name = drop_down_year_from>
+    {% for colour in drop_down_year_from %}
+    <option value= "{{colour}}" SELECTED>{{ colour }}</option>"
+    {% endfor %}
+</select>
+
+<br>
+<br>
+<br>
+
+To Month: <select name= drop_down_month_to>
+    {% for colour in drop_down_month_to %}
+    <option value= "{{colour}}" SELECTED>{{ colour }}</option>"
+    {% endfor %}
+</select>
+<br>
+    To Year: <select name = drop_down_year_to>
+    {% for colour in drop_down_year_to %}
+    <option value= "{{colour}}" SELECTED>{{ colour }}</option>"
+    {% endfor %}
+</select>
+
+</form>
+	
+
+	<br>
+	<h3> {{ symbol }} </h3>
+
+	<p> {{ company_summary }} </p>
+
+    <embed type="image/svg+xml" src = {{ lcdata|safe }} style="max-width:750px"/>
+
+    {% for i in top %}
+    <a href="">	{{ i }} </a>
+    {% endfor %}
+    <br>
+    <br>
+    <!-- <table> -->
+    <div class="table-responsive">          
+  	<table class="table">
+
+<!--
+
+    <tr>
+    	<th> Open </th>
+    </tr>
+    {% for i in open %}
+    <tr>
+    <td> {{ i }} </td>
+    </tr>
+    {% endfor %}
+
+    <br>
+    <br>
+    <h4> Close </h4>
+    {% for i in close %}
+    <tr> {{ i }} <br> </tr>
+    {% endfor %}
+
+    {% for key, value in stock_d.items() %}
+        <th> {{ key }} </th>
+
+        {% for i in value %}
+        <tr>
+        <td> {{ i }} </td>
+   		</tr>
+   		{% endfor %}
+	{% endfor %}
+
+-->
+
+    <thead><tr><th>Open</th><th>Close</th><th>High</th><th>Low</th></tr></thead>
+    <tbody>
+    {% for i in sample %}
+    <tr><td>{{ i[0] }}</td><td>{{ i[1] }}</td><td>{{ i[2] }}</td><td>{{ i[3] }}</td></tr>
+    </tbody>
+
+	{% endfor %}
+
+
+
+</table>
+</div>
+</div>
+<br>
+<br>
+<h3> {{ symbol }}: Twitter Tweets </h3>
+<div>
+    {% for text in thatlist %}
+    <p> {{text}}</p>"
+    {% endfor %}
+</div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+
+<html>
+<head>
+	<title> Flask Powered </title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
+<body>
+
+<div class="container">
+
+<h1> <a href= 'https://www.google.com'> Stock Data Analysis </a> </h1>
+<br>
+<form method= "post", action="/">
+<div class = "form-group">
+    TCKER: <input type="text" name="Tcker" value= "GOOGL"></input>
+    <input class="btn btn-primary" type="submit" value="Plot">
+    From Month: <select name= drop_down_month_from>
+    {% for colour in drop_down_month_from %}
+    <option value= "{{colour}}" SELECTED>{{ colour }}</option>"
+    {% endfor %}
+</select>
+<br>
+    From Year: <select name = drop_down_year_from>
+    {% for colour in drop_down_year_from %}
+    <option value= "{{colour}}" SELECTED>{{ colour }}</option>"
+    {% endfor %}
+</select>
+
+<br>
+<br>
+<br>
+
+To Month: <select name= drop_down_month_to>
+    {% for colour in drop_down_month_to %}
+    <option value= "{{colour}}" SELECTED>{{ colour }}</option>"
+    {% endfor %}
+</select>
+<br>
+    To Year: <select name = drop_down_year_to>
+    {% for colour in drop_down_year_to %}
+    <option value= "{{colour}}" SELECTED>{{ colour }}</option>"
+    {% endfor %}
+</select>
+
+</form>
+</div>
+
+
+</body>
+</html>
